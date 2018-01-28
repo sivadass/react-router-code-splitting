@@ -1,10 +1,6 @@
 import React from 'react';
 import { HashRouter as Router, Route } from 'react-router-dom';
 
-import PageOne from './page-one';
-import PageTwo from './page-two';
-import PageThree from './page-three';
-
 class DynamicImport extends React.Component {
   state = {
     component: null
@@ -30,14 +26,38 @@ const Loading = () => {
     )
 }
 
+const PageOne = (props) => (
+  <DynamicImport load={() => import('./pages-one')}>
+    {(Component) => Component === null
+      ? <Loading />
+      : <Component {...props} />}
+  </DynamicImport>
+)
+
+const PageTwo = (props) => (
+  <DynamicImport load={() => import('./pages-two')}>
+    {(Component) => Component === null
+      ? <Loading />
+      : <Component {...props} />}
+  </DynamicImport>
+)
+
+const PageThree = (props) => (
+  <DynamicImport load={() => import('./pages-three')}>
+    {(Component) => Component === null
+      ? <Loading />
+      : <Component {...props} />}
+  </DynamicImport>
+)
+
 class App extends React.Component {
   render(){
     return(
       <Router>
         <div>
           <Route exact path="/" component={PageOne}/>
-          <Route path="/Profile" component={PageTwo}/>
-          <Route path="/Weight" component={PageThree}/>
+          <Route path="/page-two" component={PageTwo}/>
+          <Route path="/page-three" component={PageThree}/>
         </div>
       </Router>
     )
