@@ -45,7 +45,7 @@ const PageTwo = (props) => (
 const PageThree = (props) => (
   <DynamicImport load={() => import('./pages-three')}>
     {(Component) => Component === null
-      ? <Loading />
+      ? <Loading style="lazy-loader"/>
       : <Component {...props} />}
   </DynamicImport>
 )
