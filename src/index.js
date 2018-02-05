@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 
 // Styles
-import './stylesheets/style.scss'
+import './stylesheets/style.css'
 
 // Root Component
 import App from './components/app'

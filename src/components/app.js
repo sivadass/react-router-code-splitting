@@ -2,8 +2,10 @@ import React from 'react';
 import { HashRouter as Router, Route } from 'react-router-dom';
 
 class DynamicImport extends React.Component {
-  state = {
-    component: null
+  constructor(props){
+    this.state = {
+      component: null
+    }
   }
   componentWillMount () {
     this.props.load()
@@ -45,7 +47,7 @@ const PageTwo = (props) => (
 const PageThree = (props) => (
   <DynamicImport load={() => import('./pages-three')}>
     {(Component) => Component === null
-      ? <Loading style="lazy-loader"/>
+      ? <Loading/>
       : <Component {...props} />}
   </DynamicImport>
 )
