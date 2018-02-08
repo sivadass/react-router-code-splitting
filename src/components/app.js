@@ -31,7 +31,7 @@ const Loading = () => {
 const PageOne = (props) => (
   <DynamicImport load={() => import('./pages-one')}>
     {(Component) => Component === null
-      ? <Loading />
+      ? <Loading true/>
       : <Component {...props} />}
   </DynamicImport>
 )
