@@ -1,5 +1,6 @@
 import React from 'react';
 import { HashRouter as Router, Route } from 'react-router-dom';
+import loaderIcon from './imges/logo.png'
 
 class DynamicImport extends React.Component {
   constructor(props){
